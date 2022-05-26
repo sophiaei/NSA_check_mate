@@ -3,4 +3,3 @@
 ### How to Run:
 * run the command ```processing &``` in the folder called check_+_mate.
 * Play the game
-* 
