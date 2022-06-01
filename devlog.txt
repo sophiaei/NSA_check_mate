@@ -41,9 +41,29 @@ tales of wisdom gained...
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
+2022-05-25 1h
+--------------------------------------------------------------
+Group agreed upon idea to make chess, completed deliverables for the day. Ameer found the devlog from the closet.
+==============================================================
 
+2022-05-26 2h
+--------------------------------------------------------------
+Group agreed upon idea to make chess, Ameer drove the making of the proposal, using his 1st semester's final project proposal as an outline
+==============================================================
 
+2022-05-26 .5h
+--------------------------------------------------------------
+Deliverables pushed onto repo
+==============================================================
 2022-05-30 2.8h
 --------------------------------------------------------------
 Sophia and Nora completed UML diagram; started state transitions. 
+==============================================================
+2022-05-31 2h
+--------------------------------------------------------------
+Nora drove the making of the state diagrams, facilitating input from Sophia and Ameer as to how the flow should work for our program. 
+==============================================================
+2022-06-01 .5h
+--------------------------------------------------------------
+Ameer worked on deliverables for the day
 ==============================================================
