@@ -33,13 +33,13 @@ tales of wisdom gained...
 
 
 
- ______   ______   __   __   __       ______   _______     
-/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
-\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
- \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
-  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
-   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
-    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+ ______   ______   __   __   __       ______   _______
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
 2022-05-25 1h
 --------------------------------------------------------------
@@ -57,13 +57,23 @@ Deliverables pushed onto repo
 ==============================================================
 2022-05-30 2.8h
 --------------------------------------------------------------
-Sophia and Nora completed UML diagram; started state transitions. 
+Sophia and Nora completed UML diagram; started state transitions.
 ==============================================================
 2022-05-31 2h
 --------------------------------------------------------------
-Nora drove the making of the state diagrams, facilitating input from Sophia and Ameer as to how the flow should work for our program. 
+Nora drove the making of the state diagrams, facilitating input from Sophia and Ameer as to how the flow should work for our program.
 ==============================================================
 2022-06-01 .5h
 --------------------------------------------------------------
 Ameer worked on deliverables for the day
+==============================================================
+
+2022-06-05 3.2h
+--------------------------------------------------------------
+Nora, Ameer and Sophia:
+ - wrote and ran toString() for Board and ran all classes
+ - (but in doing so removed all uses of board in Piece instances,
+    including in the constructor)
+ - updated the Board constructor to start at initial positions
+ - wrote checkMove methods for Pawn and Rook 
 ==============================================================
