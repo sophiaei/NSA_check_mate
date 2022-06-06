@@ -9,13 +9,13 @@ public class Knight extends Piece{
     return "N";
   }
   public void checkMoves(){
-    // (_current._row + 2, _current._col + 1)
-    // (_current._row + 1, _current._col + 2)
-    // (_current._row – 1, _current._col + 2)
-    // (_current._row – 2, _current._col + 1)
-    // (_current._row – 2, _current._col – 1)
-    // (_current._row – 1, _current._col – 2)
-    // (_current._row + 1, _current._col – 2)
-    // (_current._row + 2, _current._col – 1)
+  _possibleMoves.add  (_current._row + 2, _current._col + 1);
+    _possibleMoves.add(_current._row + 1, _current._col + 2);
+    _possibleMoves.add(_current._row - 1, _current._col + 2);
+    _possibleMoves.add(_current._row - 2, _current._col + 1);
+    _possibleMoves.add(_current._row - 2, _current._col - 1);
+    _possibleMoves.add(_current._row - 1, _current._col - 2);
+    _possibleMoves.add(_current._row + 1, _current._col - 2);
+    _possibleMoves.add(_current._row + 2, _current._col - 1);
   }
 }
