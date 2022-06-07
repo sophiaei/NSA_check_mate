@@ -75,5 +75,22 @@ Nora, Ameer and Sophia:
  - (but in doing so removed all uses of board in Piece instances,
     including in the constructor)
  - updated the Board constructor to start at initial positions
- - wrote checkMove methods for Pawn and Rook 
+ - wrote checkMove methods for Pawn and Rook
+==============================================================
+
+2022-06-06 0.6h
+--------------------------------------------------------------
+Nora, Ameer and Sophia:
+ - wrote the beginnings of the checkMove() function for bishops, in such a way
+   that it can be reused for rook and for queen (we are now iterating through
+   arrays of the smallest possible incremental move until we hit a boundary or
+   another piece)
+==============================================================
+
+2022-06-06 h
+--------------------------------------------------------------
+Nora, Ameer and Sophia:
+ - decided to have the functions in Piece take Board as a parameter, to avoid
+   the issue of Boards containing Pieces and Pieces containing Boards.
+ - fixed and compiled Bishop checkMoves()
 ==============================================================
