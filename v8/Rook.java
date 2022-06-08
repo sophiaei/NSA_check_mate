@@ -9,8 +9,13 @@ public class Rook extends Piece{
     return "R";
   }
   public void checkMoves(){
+
+    
+
+
+
       for(int x = _current._row+1; x<8;x++  ){//up
-        if(_current.thereIsAPiece(x, _current._column)){
+        if(_current.thereIsAPiece(x, _current._column){
           _possibleMoves.add(x,_current._column);
           break;
         }
@@ -18,26 +23,26 @@ public class Rook extends Piece{
           _possibleMoves.add(x,_current._column);
         }
   }
-    for(int x = _current._row-1; x>0;x--  ){//up
-      if(_current.thereIsAPiece(x, _current._column)){
-        _possibleMoves.add(x,_current._column);
-        break;
-      }
-      else{
-        _possibleMoves.add(x,_current._column);
-      }
-}
-    for(int x = _current._column+1; x<8;x++  ){//up
-      if(_current.thereIsAPiece(_current._row, x)){
-        _possibleMoves.add(_current._row, x);
-        break;
-      }
-      else{
-        _possibleMoves.add(_current._row, x);
-      }
+  for(int x = _current._row-1; x>0;x--  ){//up
+    if(_current.thereIsAPiece(x, _current._column){
+      _possibleMoves.add(x,_current._column);
+      break;
     }
+    else{
+      _possibleMoves.add(x,_current._column);
+    }
+}
+  for(int x = _current._column+1; x<8;x++  ){//up
+    if(_current.thereIsAPiece(_current._row, x){
+      _possibleMoves.add(_current._row, x);
+      break;
+    }
+    else{
+      _possibleMoves.add(_current._row, x);
+    }
+  }
     for(int x = _current._column-1; x>0;x--  ){//up
-      if(_current.thereIsAPiece(_current._row, x)){
+      if(_current.thereIsAPiece(_current._row, x){
         _possibleMoves.add(_current._row, x);
         break;
       }
@@ -46,4 +51,6 @@ public class Rook extends Piece{
       }
     }
   }
+
+
 }
