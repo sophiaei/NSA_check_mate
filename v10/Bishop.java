@@ -28,17 +28,26 @@ public class Bishop extends Piece{
           // end when you either hit a piece
           Location temp = new Location(_current._row, _current._column );
 
-          for (int i = 1; i < 8; i++){ // you can, at most, add the translation 7 times provided you don't break before then
-            temp.setValues(temp.getRow() + coors[0], temp.getColumn() + coors[1]); // apply the translation
-            if (brd.thereIsAPiece(temp) ){ // is there a piece there?
+          temp.setValues(temp.getRow() + coors[0], temp.getColumn() + coors[1]); // apply the translation
+          while (brd.positionExists(temp)){// while it's still on the board
 
-              if (brd.piece(temp)._color == this._color ){ // if the color of the piece at temp is the same
-                break;
-              }
-             _possibleMoves.add(temp); // if it's a piece of another color, you can just take that piece
+          System.out.println("now checking: " + temp);
+          if (brd.thereIsAPiece(temp) ){ // is there a piece there?
+
+            if (brd.piece(temp)._color == this._color ){ // if the color of the piece at temp is the same
+              System.out.println("no move possible here bc already a piece ");
               break;
             }
-            _possibleMoves.add(temp);
+            Location newOption = new Location(temp.getRow(), temp.getColumn());// you need a deep copy
+            _possibleMoves.add(newOption); // if it's a piece of another color, you can just take that piece
+            System.out.println("yes, you can take the piece");
+            break;
+          }
+          Location newOption2 = new Location(temp.getRow(), temp.getColumn());// you need a deep copy
+          _possibleMoves.add(newOption2);
+          System.out.println("can move here");
+
+          temp.setValues(temp.getRow() + coors[0], temp.getColumn() + coors[1]); // apply the translation
           }
 
 

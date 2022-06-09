@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 public class Board{
-  Piece[][] _contents;
-  ArrayList<Piece> _deadW, _deadB;
+  private Piece[][] _contents;
+  private ArrayList<Piece> _deadW, _deadB;
 
   public Board(){
     _contents = new Piece[8][8];
-    for (int j = 0; j < 8; j++){ //column
-      for (int i = 0; i < 8; i++){// row
-        _contents[i][j] = new Piece(0, new Location(i, j)); // no board variable yet
-      }
-    }
+
+    // we should not be making empty pieces that can't be used
+  }// end constructor
+
+  public void setUp(){
     //pawns:
     for (int j = 0; j < 8; j++){ // for the white pawn row
       _contents[1][j] = new Pawn(/*this, */1, new Location(1,j)); //iffy - check later
@@ -35,6 +35,7 @@ public class Board{
       _contents[(int)(3.5 - 3.5 * i)][3] = new Queen(/*this, */i, new Location( (int)(3.5 - 3.5 * i), 4 ));
     }
   }
+
 
 
   public Piece piece(Integer row, Integer column){ //gets the piece at specific location
@@ -69,7 +70,7 @@ public class Board{
 
   }
   public boolean positionExists(int row, int column){ // is specified position on the board?
-    return (row >= 0 && row < 8) && (column >= 0 && column < 8);
+    return ((row >= 0 && row < 8) && (column >= 0 && column < 8) );
   }
   public boolean positionExists(Location location){
     return positionExists(location.getRow(),location.getColumn());
@@ -79,7 +80,6 @@ public class Board{
   public boolean thereIsAPiece(Location position) { // is there a piece at the specified location
     return piece(position) != null;
   }
-
 
     public String toString(){
       String output = "  ";
@@ -92,10 +92,35 @@ public class Board{
       for (int j = 0; j < 8; j++){
         output += j + " ";
         for (int i = 0; i < 8; i++){
-          output += _contents[j][i].toString() + " ";
+          if (_contents[j][i] == null){// if there's no piece there, just put a dot
+            output += "• ";
+          } else {
+            output += _contents[j][i].toString() + " ";
+          }
         }
         output += "\n";
       } return output;
     }
 
+    public Piece addPiece(String type, int r, int c, int clr){
+      Piece a;
+      Location where = new Location(r, c);
+      if (type == "K"){
+        a = new King(clr, where);
+      } else if (type == "Q"){
+        a = new Queen(clr, where);
+      } else if (type == "N"){
+        a = new Knight(clr, where);
+      } else if (type == "B"){
+        a = new Bishop(clr, where);
+      } else if (type == "R"){
+        a = new Rook(clr, where);
+      } else if (type == "P"){
+        a = new Pawn(clr, where);
+      } else {
+        a = new Piece(clr, where);
+      }
+      _contents[r][c] = a;
+      return a;
+    }
   }

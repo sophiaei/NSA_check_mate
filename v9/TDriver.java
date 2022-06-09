@@ -1,22 +1,16 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Driver{
+public class TDriver{
   public boolean _over;
   public int _wonBy;
-  public Board brd;
+  public TBoard brd;
   public Location[] kingLocations; // black then white
   public int _whiteTurn; // 1 is that it's white
 
-  public Driver(){
-    brd= new Board(); // sets up the board
-    Location white =  new Location(0, 4);
-    Location black = new Location(7, 4);
-    kingLocations = new Location[2];
-    kingLocations[0] = white;
-    kingLocations[1] = black;
-    //= {white, black}; // 4 0 for white, 4 7 for black
-    _whiteTurn = 1;
+  public TDriver(){
+    brd= new TBoard(); // sets up the board
+
   }
 
 
@@ -26,7 +20,7 @@ public class Driver{
   }
 
 
-  public Board turn(){
+  public TBoard turn(){
 
     boolean inDanger = false; // has to b here bc king in question chagnes
 
@@ -36,6 +30,7 @@ public class Driver{
     Piece alsoMoving;
     Location endPlace = abyss;
     String newType; // for pawn promotion
+
     Scanner sc = new Scanner( System.in );
 
     if (inDanger == true){ // checks if the game is over
@@ -49,15 +44,14 @@ public class Driver{
     }
     System.out.println("Please input your move");
 
-    while( sc.hasNext() == false) {
-      int x = 1;
-      // if there's no input yet, just hold tight
+    while( sc.hasNext() == false) { // if there's no input yet, just hold tight
+
     }
     String inInput = sc.next();
     if (inInput == "CK" || inInput == "CQ"){ // if you're castling
       castling = true;
     }
-    try{
+    try{ //get and assign the user input to variables
       String[] info = inInput.split(" "); // this will give you as long an array as needed
       //Location startingPlace = new Location(info[0], info[1]);
       moving = brd.piece(Integer.parseInt(info[0]), Integer.parseInt(info[1]) );
@@ -75,7 +69,7 @@ public class Driver{
         System.out.println("The king is in danger; please move it");
         turn();
     }
-    if (moving.isMove(endPlace)){
+    if (moving.isMove(endPlace)){ // needs to be completed
       System.out.print("yes, this works");
     } else{
       turn();
@@ -86,6 +80,8 @@ public class Driver{
 
 
   public void go(){
+    //set up the move sets:
+
     while (_over == false){
       turn();
     }
@@ -94,6 +90,7 @@ public class Driver{
   public static void main(String[] args){
 
     //checking location
+    /*
     Location a = new Location(2, 3);
     System.out.println(a);
 
@@ -102,11 +99,20 @@ public class Driver{
     System.out.println(x);
     System.out.println(x._color);
     System.out.println(x._current);
+    */
 
-    Board b = new Board();
-    b.setUp(); 
+    TBoard b = new TBoard();
     System.out.println(b);
-    //System.out.println(b.piece(3, 3)._color); // throws an exception, as it should
+    b.addPiece("B", 1, 1, 1);
+    System.out.println(b);
+
+    /*
+    System.out.println("testing the bishop checkmoves function");
+    System.out.println(b.piece(1, 1)._possibleMoves);
+    b.piece(1, 1).checkMoves(b);
+    System.out.println(b.piece(1, 1)._possibleMoves);
+    */
+  //  System.out.println()
 
       }//end main()
   }

@@ -94,3 +94,22 @@ Nora, Ameer and Sophia:
    the issue of Boards containing Pieces and Pieces containing Boards.
  - fixed and compiled Bishop checkMoves()
 ==============================================================
+
+2022-06-09 h
+--------------------------------------------------------------
+Nora:
+ - finished writing the turn function, with the exception of
+    - the different cases of
+ - fixed an implementation in which we were creating nothing pieces so the toString
+   would work
+ - made white pieces show up yellow and black pieces show up blue so the user can
+   distinguish them
+ - split off setting up the board from creating the board, so checkMoves could be
+   tested with a relatively sparse board
+(notes to self while programming)
+    - finish the different cases of actually moving Pieces
+    - make a tester board class
+    - uncomment all of the checkMove functions eventually
+
+
+==============================================================

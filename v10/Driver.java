@@ -92,8 +92,8 @@ public class Driver{
   }
 
   public static void main(String[] args){
-
     //checking location
+    /*
     Location a = new Location(2, 3);
     System.out.println(a);
 
@@ -102,11 +102,21 @@ public class Driver{
     System.out.println(x);
     System.out.println(x._color);
     System.out.println(x._current);
+    */
 
     Board b = new Board();
-    b.setUp(); 
     System.out.println(b);
-    //System.out.println(b.piece(3, 3)._color); // throws an exception, as it should
+    b.addPiece("B", 1, 1, 1);
+    System.out.println(b);
+
+
+    System.out.println("testing the bishop checkmoves function");
+    System.out.println(b.piece(1, 1)._possibleMoves);
+    b.piece(1, 1).checkMoves(b);
+    System.out.println(b.piece(1, 1)._possibleMoves); // check
+    /*
+    */
+  //  System.out.println()
 
       }//end main()
   }
