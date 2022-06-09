@@ -19,14 +19,26 @@ public class Knight extends Piece{
     return output;
   }
 
-  // public void checkMoves(){
-  // _possibleMoves.add  (_current._row + 2, _current._col + 1);
-  //   _possibleMoves.add(_current._row + 1, _current._col + 2);
-  //   _possibleMoves.add(_current._row - 1, _current._col + 2);
-  //   _possibleMoves.add(_current._row - 2, _current._col + 1);
-  //   _possibleMoves.add(_current._row - 2, _current._col - 1);
-  //   _possibleMoves.add(_current._row - 1, _current._col - 2);
-  //   _possibleMoves.add(_current._row + 1, _current._col - 2);
-  //   _possibleMoves.add(_current._row + 2, _current._col - 1);
-  // }
+
+  public void checkMoves(Board brd){ // this is just the board that the piece is on
+    Location[] movesToCheck = new Location[8];
+    int[][] translations = { {1, 2}, {2, 1}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}, {1, -2}, {2, -1} };
+    for (int i = 0; i < 8; i++){
+      movesToCheck[i] = new Location(_current.getRow() + translations[i][0], _current.getColumn() + translations[i][1]);
+    } // makes a list of moves to check
+    for (Location x : movesToCheck){
+      if (brd.positionExists(x)){// if the move is on the board
+        if ( brd.thereIsAPiece(x)){
+          if (brd.piece(x)._color != this._color){
+            _possibleMoves.add(x);
+          }
+        } else {
+          _possibleMoves.add(x);
+        }
+      }// otherwise, don't add it
+    }
+
+    } // end checkmoves
+
+
 }

@@ -19,20 +19,38 @@ public class King extends Piece{
     return output;
   }
 
-  // public void checkMoves(Board brd){
-  //
-  //   int[][] potentialMoves = { {1, 1}, {1, -1}, {-1, -1}, {-1, 1}, {1, 0} {0, 1}, {-1, 0}, {0, -1} }
-  //   for int(int[] coors : potentialMoves){
-  //     Location trans = new Location(_current._row + coors[0], _current._column + coors[1]);
-  //     if (brd.thereIsAPiece(trans) == false){// if there isn'a piece already there
-  //       if (){ // if the move wouldn't endanger the king
-  //
-  //       }
-  //
-  //     }
-  //   }
-  //
-  // }
+  public void checkMoves(Board brd){
+    Location[] movesToCheck = new Location[8];
+    int[][] translations = { {1, 1}, {1, -1}, {-1, -1}, {-1, 1}, {1, 0} {0, 1}, {-1, 0}, {0, -1} };
+    for (int i = 0; i < 8; i++){
+      movesToCheck[i] = new Location(_current.getRow() + translations[i][0], _current.getColumn() + translations[i][1]);
+    } // makes a list of moves to check
+    for (Location x : movesToCheck){
+      if (brd.positionExists(x)){// if the move is on the board
+        if ( brd.thereIsAPiece(x)  == false){
+          if (brd.checkDanger()){
+            _possibleMoves.add(x);
+          }
+        } else {
+          _possibleMoves.add(x);
+        }
+      }// otherwise, don't add it
+    }
+
+
+
+    int[][] potentialMoves =
+    for int(int[] coors : potentialMoves){
+      Location trans = new Location(_current._row + coors[0], _current._column + coors[1]);
+      if (brd.thereIsAPiece(trans) == false){// if there isn'a piece already there
+        if (){ // if the move wouldn't endanger the king
+
+        }
+
+      }
+    }
+
+  }
 
 
 }

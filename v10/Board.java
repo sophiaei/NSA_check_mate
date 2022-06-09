@@ -123,4 +123,89 @@ public class Board{
       _contents[r][c] = a;
       return a;
     }
+
+    public boolean checkDanger(int clr, Location whereKing){
+      // checks endangerment from rook moves:
+      int[][] directions = { {1, 0}, {-1, 0}, {0, 1}, {0, -1} }; // S, N, E, W
+      // check in each direction
+      // if you hit a rook or queen of the same color, stop going in that direction
+      // if you hit a rook or queen of the opposite color, you are in danger. exit function
+      for(int[] coors : directions){
+        Location temp = new Location(whereKing._row, whereKing._column );
+
+        temp.setValues(temp.getRow() + coors[0], temp.getColumn() + coors[1]); // apply the translation
+        while (positionExists(temp)){// while it's still on the board
+          System.out.println("now checking: " + temp);
+          if (thereIsAPiece(temp) ) { // is there a piece there?
+
+            if ( (piece(temp)._color != clr) && (piece(temp) instanceof Rook || piece(temp) instanceof Queen) ){ // if the color of the piece at temp is the same
+              return true;
+            }
+            System.out.println("stop - no more danger this direction");
+            break;
+
+          }
+          temp.setValues(temp.getRow() + coors[0], temp.getColumn() + coors[1]); // apply the translation
+
+        }
+      }// end for loop
+
+      System.out.println("\nnow checking bishop moves");
+      // checks endangerment from bishop moves:
+      int[][] directions2 = { {1, 1}, {1, -1}, {-1, 1}, {-1, -1} }; // NE, NW, SE, SW
+
+      for(int[] coors : directions2){
+        Location temp = new Location(whereKing._row, whereKing._column );
+
+        temp.setValues(temp.getRow() + coors[0], temp.getColumn() + coors[1]); // apply the translation
+        while (positionExists(temp)){// while it's still on the board
+          System.out.println("now checking: " + temp);
+          if (thereIsAPiece(temp) ) { // is there a piece there?
+
+            if ( (piece(temp)._color != clr) && (piece(temp) instanceof Bishop || piece(temp) instanceof Queen) ){ // if the color of the piece at temp is the same
+              return true;
+            }
+            System.out.println("stop - no more danger this direction");
+            break;
+
+          }
+          temp.setValues(temp.getRow() + coors[0], temp.getColumn() + coors[1]); // apply the translation
+        }
+      }// end for loop
+
+      // checks endangerment from knights:
+      System.out.println("\nnow checking knight moves");
+      int[][] directions3 = { {1, 2}, {2, 1}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}, {1, -2}, {2, -1} };
+      Location[] movesToCheck = new Location[8];
+      for (int i = 0; i < 8; i++){
+        movesToCheck[i] = new Location(whereKing.getRow() + directions3[i][0], whereKing.getColumn() + directions3[i][1]);
+      } // makes a list of moves to check
+      for (Location x : movesToCheck){
+        System.out.println(x);
+        if (positionExists(x) && thereIsAPiece(x)){// if the move is on the board
+          if (piece(x)._color != clr && piece(x) instanceof Knight){
+            return true;
+          }
+        }
+      }
+      // checks endangerment from pawns (en passant not a consideration)
+      System.out.println("\nnow checking pawn moves");
+      int[] dirs = {-1, 1};
+      for (int x : dirs){
+        Location threat = new Location(whereKing.getRow() + clr, whereKing.getColumn() + x );
+        System.out.println(threat);
+        if (positionExists(threat) && thereIsAPiece(threat)) {// if there's a piece a pawn taking move away
+          // black pawns decrease in row; white increases
+          // a black pawn threatening a king would have a row less than the white king
+          if (piece(threat)._color != clr && piece(threat) instanceof Pawn){
+            return true;
+          }
+        }
+      }
+
+
+      return false;
+    } // end checkDanger
+
+
   }

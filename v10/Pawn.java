@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Pawn extends Piece{
   //protected Location _current;
-  public boolean _justJumped2; // whether the pawn has just moved up two
+
 
   public Pawn(/*Board board, */int clr, Location where){
      super( /*board, */clr, where);
@@ -26,45 +26,46 @@ public class Pawn extends Piece{
 
 
 
-  // public void checkMoves(){
-  //   Location New=new Location(this._row+2*this._color,this._column); // adance by 2
-  //   Location New2=new Location(this._row+this._color,this._column); // regular advance
-  //   Location New3=new Location(this._row+this._color,this._column-1); // eat to the right
-  //   Location New4=new Location(this._row+this._color,this._column+1); // eat to the left
-  //
-  //       if(board.positionExists(New2)&&!board.thereIsAPiece(New2)){ //up 1 move
-  //         _possibleMoves.add(New2);
-  //       }
-  //       if(_row==(4.5-2.5*color)&&!board.thereIsAPiece(New2)){ // up 2 move
-  //         if(!board.thereIsAPiece(New)){
-  //         _possibleMoves.add(New);
-  //       }
-  //     }
-  //     // regular taking case
-  //     if( board.positionExists(New3)&&(board.thereIsAPiece(New3)&&New3.on._color!=this._color) )
-  //       { //diagnol eat
-  //       _possibleMoves.add(New3);
-  //     }
-  //     if( board.positionExists(New4)&&(board.thereIsAPiece(New4)&&New4.on._color!=this._color) ){ //diagnol eat pt 2
-  //       _possibleMoves.add(New4);
-  //     }
-  //     // en passsant case
-  //     if( board.positionExists(New3)
-  //       &&(board.thereIsAPiece(new Location(this._row,this._column-1)) )
-  //       && ((board[this._row][this._column-1]) instanceof Pawn) &&
-  //        board[this._row][this._column-1]._color!=this._color
-  //       && (board[this._row][this._column-1]._justJumped2 ) )
-  //       { //diagnol eat
-  //       _possibleMoves.add(New3);
-  //     }
-  //     if(board.positionExists(New4)&&(new Location(this._row,this._column+1))
-  //     && ((board[this._row][this._column+1]) instanceof Pawn) &&
-  //      board[this._row][this._column-1]._color!=this._color
-  //     && (board[this._row][this._column+1]._justJumped2 ) ) { //diagnol eat pt 2
-  //       _possibleMoves.add(New4);
-  //     }
-  //
-  //   }
+  public void checkMoves(Board board){
+    Location New=new Location(_current.getRow()+2*this._color,_current.getColumn()); // adance by 2
+    Location New2=new Location(_current.getRow()+this._color,_current.getColumn()); // regular advance
+    Location New3=new Location(_current.getRow()+this._color,_current.getColumn()-1); // eat to the right
+    Location New4=new Location(_current.getRow()+this._color,_current.getColumn()+1); // eat to the left
+
+        if(board.positionExists(New2)&&!board.thereIsAPiece(New2)){ //up 1 move
+          _possibleMoves.add(New2);
+        }
+        if(_current.getRow()==((int)(3.5-2.5*_color))&&!board.thereIsAPiece(New2)){ // up 2 move
+          if(!board.thereIsAPiece(New)){
+          _possibleMoves.add(New);
+        }
+      }
+      // regular taking case
+      if( board.positionExists(New3)&&(board.thereIsAPiece(New3)&&board.piece(New3)._color!=this._color) )
+        { //diagnol eat
+        _possibleMoves.add(New3);
+      }
+      if( board.positionExists(New4)&&(board.thereIsAPiece(New4)&&board.piece(New4)._color!=this._color) ){ //diagnol eat pt 2
+        _possibleMoves.add(New4);
+      }
+      // en passsant case
+      if( board.positionExists(New3) &&(board.thereIsAPiece(new Location(_current.getRow(),_current.getColumn()-1)) ) ) {
+        if ( board.piece(_current.getRow(), _current.getColumn()-1 )  instanceof Pawn){
+          if ( board.piece(_current.getRow(), _current.getColumn()-1 )._color!=this._color && board.piece(_current.getRow(), _current.getColumn()-1 )._justJumped2 ){
+              _possibleMoves.add(New3);
+          }
+        }
+      }
+
+      if( board.positionExists(New4) &&(board.thereIsAPiece(new Location(_current.getRow(),_current.getColumn()+1)) ) ) {
+        if (( board.piece(_current.getRow(), _current.getColumn()+1 ) instanceof Pawn)){
+          if ( board.piece(_current.getRow(), _current.getColumn()+1 )._color!=this._color && ( board.piece(_current.getRow(), _current.getColumn()+1 )._justJumped2 )){
+              _possibleMoves.add(New4);
+          }
+        }
+      }
+
+    }
     // en passsant case:
     // check if the diagonal locatio to which you'd be movign is on the board
     // check if there is a piece next to you

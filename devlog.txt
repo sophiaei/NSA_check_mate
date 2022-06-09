@@ -106,10 +106,12 @@ Nora:
    distinguish them
  - split off setting up the board from creating the board, so checkMoves could be
    tested with a relatively sparse board
+ - ran and corrected checkMoves functions for Rook, Bishop, Queen, Knight, and Pawn
+ - wrote, ran, and corrected checkDanger function, and moved it to Board class so
+   it can more easily be accessed by the king's checkMoves function
 (notes to self while programming)
     - finish the different cases of actually moving Pieces
-    - make a tester board class
-    - uncomment all of the checkMove functions eventually
+    - if time allows, actually directly check rook and queen checkmoves
 
 
 ==============================================================

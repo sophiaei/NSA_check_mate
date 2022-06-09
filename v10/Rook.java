@@ -19,49 +19,40 @@ public class Rook extends Piece{
     return output;
   }
 
-//   public void checkMoves(){
-//
-//
-//
-//
-//
-//       for(int x = _current._row+1; x<8;x++  ){//up
-//         if(_current.thereIsAPiece(x, _current._column){
-//           _possibleMoves.add(x,_current._column);
-//           break;
-//         }
-//         else{
-//           _possibleMoves.add(x,_current._column);
-//         }
-//   }
-//   for(int x = _current._row-1; x>0;x--  ){//up
-//     if(_current.thereIsAPiece(x, _current._column){
-//       _possibleMoves.add(x,_current._column);
-//       break;
-//     }
-//     else{
-//       _possibleMoves.add(x,_current._column);
-//     }
-// }
-//   for(int x = _current._column+1; x<8;x++  ){//up
-//     if(_current.thereIsAPiece(_current._row, x){
-//       _possibleMoves.add(_current._row, x);
-//       break;
-//     }
-//     else{
-//       _possibleMoves.add(_current._row, x);
-//     }
-//   }
-//     for(int x = _current._column-1; x>0;x--  ){//up
-//       if(_current.thereIsAPiece(_current._row, x){
-//         _possibleMoves.add(_current._row, x);
-//         break;
-//       }
-//       else{
-//         _possibleMoves.add(_current._row, x);
-//       }
-//     }
-//   } // end checkMoves
+  public void checkMoves(Board brd){ // this is just the board that the piece is on
+
+
+        int[][] directions = { {1, 0}, {-1, 0}, {0, 1}, {0, -1} }; // S, N, E, W
+        for(int[] coors : directions){
+          // adds the translation until you ucan't go anymore
+          // start at the current location plus translation once
+          // end when you either hit a piece
+          Location temp = new Location(_current._row, _current._column );
+
+          temp.setValues(temp.getRow() + coors[0], temp.getColumn() + coors[1]); // apply the translation
+          while (brd.positionExists(temp)){// while it's still on the board
+
+          System.out.println("now checking: " + temp);
+          if (brd.thereIsAPiece(temp) ){ // is there a piece there?
+
+            if (brd.piece(temp)._color == this._color ){ // if the color of the piece at temp is the same
+              System.out.println("no move possible here bc already a piece ");
+              break;
+            }
+            Location newOption = new Location(temp.getRow(), temp.getColumn());// you need a deep copy
+            _possibleMoves.add(newOption); // if it's a piece of another color, you can just take that piece
+            System.out.println("yes, you can take the piece");
+            break;
+          }
+          Location newOption2 = new Location(temp.getRow(), temp.getColumn());// you need a deep copy
+          _possibleMoves.add(newOption2);
+          System.out.println("can move here");
+
+          temp.setValues(temp.getRow() + coors[0], temp.getColumn() + coors[1]); // apply the translation
+          }
+
+      }
+    } // end checkmoves
 
 
 }

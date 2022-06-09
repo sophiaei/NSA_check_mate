@@ -6,6 +6,8 @@ public class Piece{
   public int _color; //black =-1, white=1
   protected Location _current;
 
+  public boolean _justJumped2; // whether the pawn has just moved up two
+  // specific to pawns, but needs to be here bc boards contain pieces, not pawns
 
   public Piece(/*Board board, */int clr, Location where){
   //  this.board = board;

@@ -50,8 +50,7 @@ public class Bishop extends Piece{
           temp.setValues(temp.getRow() + coors[0], temp.getColumn() + coors[1]); // apply the translation
           }
 
-
       }
-    }
+    } // end checkmoves
 
   }

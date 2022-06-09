@@ -25,7 +25,7 @@ public class Location{
     _column = column;
   }
 
-  public void setValues(int column, int row){
+  public void setValues(int row, int column){
     _row = row;
     _column = column;
   }
