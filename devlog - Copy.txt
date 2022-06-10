@@ -1,0 +1,117 @@
+National Swag Agency
+Nora Miller
+Sophia Eiden
+Ameer Alnasser
+pd 6
+---------------------
+Sentient Chess
+Create a chess game using processing visuals that can be played with either two players, against the computer, or with two computers
+
+/////////// Zone of Reflection \\\\\\\\\\\
+------------------------------------------
+OBSTACLES OVERCOME
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+wow we so BOSS bc...
+
+UNRESOLVED ISSUES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+blah blah pesky bug...
+maybe some of these will move into the Obs.Ovrcm section...
+
+COOL STUFF LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+wow! oo!...
+
+MID-DEVELOPMENT DESIGN CHANGES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+we changed ___ to ___ bc...
+
+LESSONS LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tales of wisdom gained...
+||||||||||||||||||||||||||||||||||||||||||
+
+
+
+ ______   ______   __   __   __       ______   _______
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
+==============================================================
+2022-05-25 1h
+--------------------------------------------------------------
+Group agreed upon idea to make chess, completed deliverables for the day. Ameer found the devlog from the closet.
+==============================================================
+
+2022-05-26 2h
+--------------------------------------------------------------
+Group agreed upon idea to make chess, Ameer drove the making of the proposal, using his 1st semester's final project proposal as an outline
+==============================================================
+
+2022-05-26 .5h
+--------------------------------------------------------------
+Deliverables pushed onto repo
+==============================================================
+2022-05-30 2.8h
+--------------------------------------------------------------
+Sophia and Nora completed UML diagram; started state transitions.
+==============================================================
+2022-05-31 2h
+--------------------------------------------------------------
+Nora drove the making of the state diagrams, facilitating input from Sophia and Ameer as to how the flow should work for our program.
+==============================================================
+2022-06-01 .5h
+--------------------------------------------------------------
+Ameer worked on deliverables for the day
+==============================================================
+
+2022-06-05 3.2h
+--------------------------------------------------------------
+Nora, Ameer and Sophia:
+ - wrote and ran toString() for Board and ran all classes
+ - (but in doing so removed all uses of board in Piece instances,
+    including in the constructor)
+ - updated the Board constructor to start at initial positions
+ - wrote checkMove methods for Pawn and Rook
+==============================================================
+
+2022-06-06 0.6h
+--------------------------------------------------------------
+Nora, Ameer and Sophia:
+ - wrote the beginnings of the checkMove() function for bishops, in such a way
+   that it can be reused for rook and for queen (we are now iterating through
+   arrays of the smallest possible incremental move until we hit a boundary or
+   another piece)
+==============================================================
+
+2022-06-06 h
+--------------------------------------------------------------
+Nora, Ameer and Sophia:
+ - decided to have the functions in Piece take Board as a parameter, to avoid
+   the issue of Boards containing Pieces and Pieces containing Boards.
+ - fixed and compiled Bishop checkMoves()
+==============================================================
+
+2022-06-09 h
+--------------------------------------------------------------
+Nora:
+ - finished writing the turn function, with the exception of
+    - the different cases of
+ - fixed an implementation in which we were creating nothing pieces so the toString
+   would work
+ - made white pieces show up yellow and black pieces show up blue so the user can
+   distinguish them
+ - split off setting up the board from creating the board, so checkMoves could be
+   tested with a relatively sparse board
+ - ran and corrected checkMoves functions for Rook, Bishop, Queen, Knight, and Pawn
+ - wrote, ran, and corrected checkDanger function, and moved it to Board class so
+   it can more easily be accessed by the king's checkMoves function
+(notes to self while programming)
+    - finish the different cases of actually moving Pieces
+    - if time allows, actually directly check rook and queen checkmoves
+
+
+==============================================================
