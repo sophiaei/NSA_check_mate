@@ -153,8 +153,8 @@ public class Driver{
     b.piece(1, 2).checkMoves(b);
     System.out.println(b.piece(1, 2)._possibleMoves); // check how it does with other pieces
     */
-
-    System.out.println("testing the checkMoves function");
+    /*
+    System.out.println("testing the checkDanger function");
     b.addPiece("K", 3, 4, 1);
     System.out.println(b);
     // b.piece(1, 2).checkMoves(b);
@@ -168,6 +168,18 @@ public class Driver{
 
     System.out.println(b);
     System.out.println(b.checkDanger(1, new Location(3, 4) ) );
+    */
+
+    System.out.println("testing the checkMoves function for king");
+    b.addPiece("K", 3, 4, 1);
+    System.out.println(b);
+    b.addPiece("B", 2, 4, -1); // blocks two squares and the square it's on
+
+    System.out.println(b);
+    b.piece(3, 4).checkMoves(b);
+    System.out.println(b.piece(3, 4)._possibleMoves);
+
+
 
 
   //  System.out.println()
