@@ -4,19 +4,23 @@ Sophia Eiden
 Ameer Alnasser
 pd 6
 ---------------------
-Sentient Chess
-Create a chess game using processing visuals that can be played with either two players, against the computer, or with two computers
+ Chess
+Create a terminal-based chess game taking in inputs in a two player game
 
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
+we were able to only make the pawn move up 2 in the first move, adding a _justMoved boolean to do so. We made castling work as well
+We originally struggled with pawns going diagonal and en passant, but got that working too
+
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
-maybe some of these will move into the Obs.Ovrcm section...
+We were unable to connect processing and java together. We expected the transition to be a lot easier than it actually is 
+There is some funkiness with the Queen and we were unable to discover why there were some impossible moves.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -24,11 +28,12 @@ wow! oo!...
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-we changed ___ to ___ bc...
+we changed our project to be terminal-based due to a lapse of judgement while designing our plan of attack. We should have been more well-versed in processing before biting
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-tales of wisdom gained...
+Don't bite what you can't chew:: in relation to trying to use a terminal-based project as basis for a processing
+getting an MVP that compiles is key. We did not try to do this to debug our code until too late.
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -97,7 +102,7 @@ Nora, Ameer and Sophia:
 
 2022-06-09 h
 --------------------------------------------------------------
-Nora:
+Nora (facilitating input from her team):
  - finished writing the turn function, with the exception of
     - the different cases of
  - fixed an implementation in which we were creating nothing pieces so the toString
