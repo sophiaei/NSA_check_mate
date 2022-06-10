@@ -13,20 +13,24 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
 we were able to only make the pawn move up 2 in the first move, adding a _justMoved boolean to do so. We made castling work as well
+
 We originally struggled with pawns going diagonal and en passant, but got that working too
+
 We have a board that reads in inputs!
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
 We were unable to connect processing and java together. We expected the transition to be a lot easier than it actually is 
+
 There is some funkiness with the Queen and we were unable to discover why there were some impossible moves.
+
 We could not use regular chess notation to take in inputs, so we resorted to using ints
 
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+We relearned how parsing Ints worked, and how we could use that to make it more location based
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
