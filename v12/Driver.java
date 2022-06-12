@@ -44,7 +44,6 @@ public class Driver{
         _wonBy = _whiteTurn * -1; // meaning the opp color won
         System.out.println("game over");
         System.out.println(brd);
-        System.exit(1);
         return bad;
       }
     }
@@ -115,7 +114,6 @@ public class Driver{
   }
 
   public Board turn(){
-    verifyMove();
     String[] printout = verifyMove();
     while(printout.length == 1 && printout[0] == "exited"){
       printout = verifyMove();
