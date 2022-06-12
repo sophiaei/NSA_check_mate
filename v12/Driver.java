@@ -233,6 +233,8 @@ public class Driver{
     Driver game = new Driver();
 
     // System.out.println(game.turn() );
+    while (b._over){
     game.go();
+  }
     }//end main()
   }
