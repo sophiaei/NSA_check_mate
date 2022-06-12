@@ -128,5 +128,12 @@ Nora (facilitating input from her team):
     - finish the different cases of actually moving Pieces
     - if time allows, actually directly check rook and queen checkmoves
 
+2022-06-12 3 h
+Ameer:
+  - more debugging on our end. We recognized that
+  en passant doesnt work
+   if you check with a piece that can be eaten, itll be chekcmate if the kign has no moves.
+  Also the king can move into danger
+  castling
 
 ==============================================================
