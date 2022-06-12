@@ -142,4 +142,7 @@ Ameer:
   castling
   en passant
 
+Sophia:
+ - fixing cosmetic issues, making it preety.
+ king cannot move and eat its threatener
 ==============================================================

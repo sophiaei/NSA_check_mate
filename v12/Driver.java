@@ -32,9 +32,10 @@ public class Driver{
     String newType = ""; // for pawn promotion
     Scanner sc = new Scanner( System.in );
     String[] bad = {"exited"};
+    String[] gameover = {"game over"};
 
     Location throne = kingLocations[(int)(0.5+0.5*_whiteTurn)];
-    System.out.println(throne);
+    //System.out.println(throne);
     Piece eater = brd.checkDanger(_whiteTurn, throne);
     if (eater._color!=0 ){ // checks if the game is over
       System.out.println("king is in danger");
@@ -42,9 +43,15 @@ public class Driver{
       if (!(brd.piece( kingLocations[(int)(0.5 + 0.5*_whiteTurn)]).hasMoves() )  && (brd.checkDanger( eater._color, eater._current )._color==0)){
         _over = true;
         _wonBy = _whiteTurn * -1; // meaning the opp color won
-        System.out.println("game over");
-        System.out.println(brd);
-        return bad;
+        clearScreen();
+        if (_wonBy == 1){
+          System.out.println("Game Over! White won!" );
+        }
+        else{
+        System.out.println("Game Over! Black won!" );
+      }
+        //System.out.println(brd);
+        return gameover;
       }
     }
     System.out.println("Please input your move");
@@ -72,8 +79,8 @@ public class Driver{
     try{
       info = inInput.split(","); // this will give you as long an array as needed
       //Location startingPlace = new Location(info[0], info[1]);
-      System.out.println(info);
-      System.out.println(info[0] + info[1] + info[2] + info[3]) ;
+      //System.out.println(info);
+      //System.out.println(info[0] + info[1] + info[2] + info[3]) ;
     }
     catch (Exception e) {
       info = new String[4];
@@ -91,7 +98,7 @@ public class Driver{
     System.out.println("Piece moving: The one at " + moving._current);
     endPlace = new Location(Integer.parseInt(info[2]), Integer.parseInt(info[3]));
     // this needs to b in location form bc we'll be checking this against movelists
-    System.out.println("Will go to: " + endPlace);
+    //System.out.println("Will go to: " + endPlace);
     if (info.length > 4){
       newType = info[4]; // this is for pawn promotion
     }
@@ -109,12 +116,15 @@ public class Driver{
       info = null;
       return bad;
     }
-    System.out.println("yes, this works");
+    //System.out.println("yes, this works");
     return info;
   }
 
   public Board turn(){
     String[] printout = verifyMove();
+    if (printout[0] == "game over"){
+      return brd;
+    }
     while(printout.length == 1 && printout[0] == "exited"){
       printout = verifyMove();
       System.out.println(printout);
@@ -124,7 +134,7 @@ public class Driver{
     Location endPlace = new Location(Integer.parseInt(printout[2]), Integer.parseInt(printout[3]));
     String newType = "";
     Piece captured;
-    System.out.println("Will go to: " + endPlace);
+    //System.out.println("Will go to: " + endPlace);
     if (printout.length > 4){
       newType = printout[4]; // this is for pawn promotion
     }
@@ -154,7 +164,7 @@ public class Driver{
     //   moving._hasMoved==true;
 
     if (moving instanceof Pawn){
-      System.out.println("now dealing with pawns");
+      //System.out.println("now dealing with pawns");
       if(moving._current._row==3.5+2.5*moving._color){ // pawn promotion
         if (newType.toUpperCase().equals("Q") ){
           moving=new Queen(moving._color,moving._current);
@@ -194,29 +204,30 @@ public class Driver{
       kingLocations[(int)(0.5 + 0.5*_whiteTurn)] = moving._current;
     }
 
-    System.out.println("about to update the move lists");
+    //System.out.println("about to update the move lists");
     brd.update();
-    System.out.println("move lists updated");
+    //System.out.println("move lists updated");
     _whiteTurn *= -1;
-
+    clearScreen();
     return brd;
 }// end turn
 
-/*
+
     public static void clearScreen(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-    */
 
   public void go(){
     brd.setUp();
     while (_over == false){
+
       if (_whiteTurn == 1){
         System.out.println("White's turn");
       } else{
         System.out.println("Black's turn");
       }
+
       System.out.println( turn() );
     }
 
@@ -224,7 +235,9 @@ public class Driver{
 
   public static void main(String[] args){
     Board b = new Board();
-    System.out.println(b);
+    //System.out.println(b);
+    clearScreen();
+    System.out.println("Welcome to Chess! When entering your moves, please format as such: original row, original column, final row, final column");
     b.setUp();
     System.out.println(b);
     //turn();
