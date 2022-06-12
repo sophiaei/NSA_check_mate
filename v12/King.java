@@ -59,7 +59,7 @@ public class King extends Piece{
           } // makes a list of moves to check
           for (Location x : movesToCheck){
             if (brd.positionExists(x)){// if the move is on the board
-              if ( brd.thereIsAPiece(x)  == false || piece(x)._color==piece(thron)._color ){
+              if ( brd.thereIsAPiece(x)  == false || brd.piece(x)._color==brd.piece(_current)._color ){
                   return true;
               }
             }
