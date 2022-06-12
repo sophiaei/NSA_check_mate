@@ -44,7 +44,7 @@ public class Driver{
         _wonBy = _whiteTurn * -1; // meaning the opp color won
         System.out.println("game over");
         System.out.println(brd);
-        System.exit();
+        System.exit(1);
         return bad;
       }
     }
