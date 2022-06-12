@@ -114,6 +114,7 @@ public class Driver{
   }
 
   public Board turn(){
+    verifyMove();
     String[] printout = verifyMove();
     while(printout.length == 1 && printout[0] == "exited"){
       printout = verifyMove();
@@ -211,9 +212,6 @@ public class Driver{
 
   public void go(){
     brd.setUp();
-    if(_over){
-      return;
-    }
     while (_over == false){
       if (_whiteTurn == 1){
         System.out.println("White's turn");

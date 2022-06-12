@@ -136,4 +136,10 @@ Ameer:
   Also the king can move into danger
   castling
 
+  we need to check
+  king moves check
+  promotions
+  castling
+  en passant
+
 ==============================================================
