@@ -21,7 +21,7 @@ We have a board that reads in inputs!
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
-We were unable to connect processing and java together. We expected the transition to be a lot easier than it actually is 
+We were unable to connect processing and java together. We expected the transition to be a lot easier than it actually is
 
 There is some funkiness with the Queen and we were unable to discover why there were some impossible moves.
 
@@ -102,7 +102,7 @@ Nora, Ameer and Sophia:
    another piece)
 ==============================================================
 
-2022-06-06 h
+2022-06-06 1h
 --------------------------------------------------------------
 Nora, Ameer and Sophia:
  - decided to have the functions in Piece take Board as a parameter, to avoid
@@ -110,7 +110,7 @@ Nora, Ameer and Sophia:
  - fixed and compiled Bishop checkMoves()
 ==============================================================
 
-2022-06-09 h
+2022-06-09 5h
 --------------------------------------------------------------
 Nora (facilitating input from her team):
  - finished writing the turn function, with the exception of
