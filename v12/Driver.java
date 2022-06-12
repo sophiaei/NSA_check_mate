@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Driver{
-  public static boolean _over;
+  public boolean _over;
   public int _wonBy;
   public Board brd;
   public Location[] kingLocations; // black then white
@@ -44,6 +44,7 @@ public class Driver{
         _wonBy = _whiteTurn * -1; // meaning the opp color won
         System.out.println("game over");
         System.out.println(brd);
+        System.exit();
         return bad;
       }
     }
@@ -233,8 +234,7 @@ public class Driver{
     Driver game = new Driver();
 
     // System.out.println(game.turn() );
-    while (!(_over)){
     game.go();
-  }
+
     }//end main()
   }
