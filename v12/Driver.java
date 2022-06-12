@@ -211,6 +211,9 @@ public class Driver{
 
   public void go(){
     brd.setUp();
+    if(_over){
+      return;
+    }
     while (_over == false){
       if (_whiteTurn == 1){
         System.out.println("White's turn");
@@ -219,6 +222,7 @@ public class Driver{
       }
       System.out.println( turn() );
     }
+
   }
 
   public static void main(String[] args){
