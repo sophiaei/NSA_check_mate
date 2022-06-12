@@ -97,7 +97,7 @@ public class Driver{
     }
 
     // we now have the input as variables; we need to check if the move is valid
-    if (inDanger && !( moving instanceof King) && (endPlace == brd.checkDanger( _whiteTurn, kingLocations[(int)(0.5 + 0.5*_whiteTurn)])._current )||moving instanceof King){// if it isn't the king that's moving
+    if ( inDanger && ( !( moving instanceof King) && (endPlace == brd.checkDanger( _whiteTurn, kingLocations[(int)(0.5 + 0.5*_whiteTurn)])._current )){// if it isn't the king that's moving
         System.out.println("The king is in danger please move it");
         System.out.println(brd.checkDanger( _whiteTurn, kingLocations[(int)(0.5 + 0.5*_whiteTurn)])._current );
         System.out.println(endPlace);

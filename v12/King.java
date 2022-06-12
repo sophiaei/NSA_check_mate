@@ -41,7 +41,9 @@ public class King extends Piece{
       if (brd.positionExists(x)){// if the move is on the board
         if ( brd.thereIsAPiece(x)  == false){
           if (brd.checkDanger(_color, x)._color == 0){
+            if(kingZone(brd)){
             _possibleMoves.add(x);
+          }
           }
         }
       }
@@ -49,7 +51,21 @@ public class King extends Piece{
 
     }
 
-
+        public boolean kingZone(Board brd){
+          Location[] movesToCheck = new Location[8];
+          int[][] translations = { {1, 1}, {1, -1}, {-1, -1}, {-1, 1}, {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
+          for (int i = 0; i < 8; i++){
+            movesToCheck[i] = new Location(_current.getRow() + translations[i][0], _current.getColumn() + translations[i][1]);
+          } // makes a list of moves to check
+          for (Location x : movesToCheck){
+            if (brd.positionExists(x)){// if the move is on the board
+              if ( brd.thereIsAPiece(x)  == false || piece(x)._color==piece(thron)._color ){
+                  return true;
+              }
+            }
+          }
+          return false;
+        }
 
 
 }
