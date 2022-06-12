@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Driver{
-  public boolean _over;
+  public static boolean _over;
   public int _wonBy;
   public Board brd;
   public Location[] kingLocations; // black then white
