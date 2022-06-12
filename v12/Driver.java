@@ -20,8 +20,7 @@ public class Driver{
     _whiteTurn = 1;
   }
 
-  public Board turn(){
-
+  public String[] verifyMove(){
     boolean inDanger = false; // has to b here bc king in question chagnes
 
     boolean castling = false; // whether you're castling
@@ -32,17 +31,20 @@ public class Driver{
     Location endPlace = abyss;
     String newType = ""; // for pawn promotion
     Scanner sc = new Scanner( System.in );
+    String[] bad = {"exited"};
 
     Location throne = kingLocations[(int)(0.5+0.5*_whiteTurn)];
     System.out.println(throne);
-    if (brd.checkDanger(_whiteTurn, throne ) ){ // checks if the game is over
+    Piece eater = brd.checkDanger(_whiteTurn, throne);
+    if (eater._color!=0 ){ // checks if the game is over
       System.out.println("king is in danger");
       inDanger = true;
-      if (!(brd.piece( kingLocations[(int)(0.5 + 0.5*_whiteTurn)]).hasMoves() ) ){
+      if (!(brd.piece( kingLocations[(int)(0.5 + 0.5*_whiteTurn)]).hasMoves() )  && (brd.checkDanger( eater._color, eater._current )._color==0)){
         _over = true;
         _wonBy = _whiteTurn * -1; // meaning the opp color won
         System.out.println("game over");
-        return brd;
+        System.out.println(brd);
+        return bad;
       }
     }
     System.out.println("Please input your move");
@@ -52,6 +54,7 @@ public class Driver{
       // if there's no input yet, just hold tight
     }
     String inInput = sc.next();
+    //System.out.println(sc.next());
     if (inInput.trim().toUpperCase().equals("CK") || inInput.trim().toUpperCase().equals ("CQ")){ // if you're castling
       castling = true;
       // search for king
@@ -75,14 +78,15 @@ public class Driver{
     catch (Exception e) {
       info = new String[4];
       System.out.println("You typed something strange; please try again");
-      turn();
+      return bad;
     }
     moving = brd.piece(Integer.parseInt(info[0]), Integer.parseInt(info[1]) );
     //if (moving == null){
 
     if (moving._color != _whiteTurn){
       System.out.println("Wrong color piece! Please try again");
-      turn();
+      info = null;
+      return bad;
     }
     System.out.println("Piece moving: The one at " + moving._current);
     endPlace = new Location(Integer.parseInt(info[2]), Integer.parseInt(info[3]));
@@ -93,18 +97,39 @@ public class Driver{
     }
 
     // we now have the input as variables; we need to check if the move is valid
-    if (inDanger && !(moving instanceof King)){// if it isn't the king that's moving
+    if (inDanger && (!(moving instanceof King || endPlace == brd.checkDanger( _whiteTurn, kingLocations[(int)(0.5 + 0.5*_whiteTurn)])._current ) )){// if it isn't the king that's moving
         System.out.println("The king is in danger; please move it");
-        turn();
+        System.out.println(brd.checkDanger( _whiteTurn, kingLocations[(int)(0.5 + 0.5*_whiteTurn)]));
+        return bad;
     }
     if (moving.isMove(endPlace) == false){
       System.out.println("Your move isn't possible for the given piece. Try again");
       System.out.println("Moves that are possible: " + moving._possibleMoves);
-      turn();
+      info = null;
+      return bad;
+    }
+    System.out.println("yes, this works");
+    return info;
+  }
+
+  public Board turn(){
+    String[] printout = verifyMove();
+    while(printout.length == 1 && printout[0] == "exited"){
+      printout = verifyMove();
+      System.out.println(printout);
     }
 
+    Piece moving = brd.piece(Integer.parseInt(printout[0]), Integer.parseInt(printout[1]) );
+    Location endPlace = new Location(Integer.parseInt(printout[2]), Integer.parseInt(printout[3]));
+    String newType = "";
+    Piece captured;
+    System.out.println("Will go to: " + endPlace);
+    if (printout.length > 4){
+      newType = printout[4]; // this is for pawn promotion
+    }
+
+/*
     // actually doing the moving
-    System.out.println("yes, this works");
     if (castling){
       // we've checked that the king is good to castle; we've not checked that the rook is good
       Location newKingPlace;
@@ -123,11 +148,10 @@ public class Driver{
         }
       }
 
-
+*/
     // } else if (moving instanceof King){
     //   moving._hasMoved==true;
 
-    }
     if (moving instanceof Pawn){
       System.out.println("now dealing with pawns");
       if(moving._current._row==3.5+2.5*moving._color){ // pawn promotion

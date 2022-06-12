@@ -25,7 +25,7 @@ public class King extends Piece{
 
   public void checkMoves(Board brd){
     super.checkMoves(brd);
-    if (_hasMoved == false && brd.checkDanger(_color, _current)==false ){ // deals iwth castling
+    if (_hasMoved == false && brd.checkDanger(_color, _current)._color==0 ){ // deals iwth castling
       Location longJump = new Location((int)(3.5-3.5*_color), 2 );
       Location shortJump = new Location((int)(3.5-3.5*_color), 6 );
       _possibleMoves.add(longJump);
@@ -40,7 +40,7 @@ public class King extends Piece{
     for (Location x : movesToCheck){
       if (brd.positionExists(x)){// if the move is on the board
         if ( brd.thereIsAPiece(x)  == false){
-          if (brd.checkDanger(_color, x) == false){
+          if (brd.checkDanger(_color, x)._color == 0){
             _possibleMoves.add(x);
           }
         }

@@ -137,7 +137,7 @@ public class Board{
       return a;
     }
 
-    public boolean checkDanger(int clr, Location whereKing){
+    public Piece checkDanger(int clr, Location whereKing){
       // checks endangerment from rook moves:
       int[][] directions = { {1, 0}, {-1, 0}, {0, 1}, {0, -1} }; // S, N, E, W
       // check in each direction
@@ -152,7 +152,7 @@ public class Board{
           if (thereIsAPiece(temp) ) { // is there a piece there?
 
             if ( (piece(temp)._color != clr) && (piece(temp) instanceof Rook || piece(temp) instanceof Queen) ){ // if the color of the piece at temp is the same
-              return true;
+              return piece(temp);
             }
             // System.out.println("stop - no more danger this direction");
             break;
@@ -176,7 +176,7 @@ public class Board{
           if (thereIsAPiece(temp) ) { // is there a piece there?
 
             if ( (piece(temp)._color != clr) && (piece(temp) instanceof Bishop || piece(temp) instanceof Queen) ){ // if the color of the piece at temp is the same
-              return true;
+              return piece(temp);
             }
           //  System.out.println("stop - no more danger this direction");
             break;
@@ -197,7 +197,7 @@ public class Board{
         // System.out.println(x);
         if (positionExists(x) && thereIsAPiece(x)){// if the move is on the board
           if (piece(x)._color != clr && piece(x) instanceof Knight){
-            return true;
+            return piece(x);
           }
         }
       }
@@ -211,13 +211,13 @@ public class Board{
           // black pawns decrease in row; white increases
           // a black pawn threatening a king would have a row less than the white king
           if (piece(threat)._color != clr && piece(threat) instanceof Pawn){
-            return true;
+            return piece(threat);
           }
         }
       }
 
-
-      return false;
+      Piece output=new Piece(0,new Location(8,8));
+      return output;
     } // end checkDanger
 
 
