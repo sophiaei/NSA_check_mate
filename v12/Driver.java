@@ -95,7 +95,7 @@ public class Driver{
       info = null;
       return bad;
     }
-    System.out.println("Piece moving: The one at " + moving._current);
+  //  System.out.println("Piece moving: The one at " + moving._current);
     endPlace = new Location(Integer.parseInt(info[2]), Integer.parseInt(info[3]));
     // this needs to b in location form bc we'll be checking this against movelists
     //System.out.println("Will go to: " + endPlace);
