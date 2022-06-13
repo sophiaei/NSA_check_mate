@@ -25,12 +25,12 @@ public class King extends Piece{
 
   public void checkMoves(Board brd){
     super.checkMoves(brd);
-    if (_hasMoved == false && brd.checkDanger(_color, _current)._color==0 ){ // deals iwth castling
-      Location longJump = new Location((int)(3.5-3.5*_color), 2 );
-      Location shortJump = new Location((int)(3.5-3.5*_color), 6 );
-      _possibleMoves.add(longJump);
-      _possibleMoves.add(shortJump);
-    }
+    // if (_hasMoved == false && brd.checkDanger(_color, _current)._color==0 ){ // deals iwth castling
+    //   Location longJump = new Location((int)(3.5-3.5*_color), 2 );
+    //   Location shortJump = new Location((int)(3.5-3.5*_color), 6 );
+    //   _possibleMoves.add(longJump);
+    //   _possibleMoves.add(shortJump);
+    // }
 
     Location[] movesToCheck = new Location[8];
     int[][] translations = { {1, 1}, {1, -1}, {-1, -1}, {-1, 1}, {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
@@ -46,7 +46,7 @@ public class King extends Piece{
           }
         }
       }
-    
+
 
     }
 
