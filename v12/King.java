@@ -39,10 +39,8 @@ public class King extends Piece{
     } // makes a list of moves to check
     for (Location x : movesToCheck){
       if (brd.positionExists(x)){// if the move is on the board
-        if ( brd.thereIsAPiece(x)  == false){
           if (brd.checkDanger(_color, x)._color == 0){
             _possibleMoves.add(x);
-          }
           }
         }
       }
